@@ -67,6 +67,7 @@ print(f"Cleaned Data Shape: {cleaned_data.shape}")
  
 # step 4 statistics
 
+
 def calculate_statistics(df):
     summary = df.groupby('turbine_id').agg(
         min_output=('power_output', 'min'),
