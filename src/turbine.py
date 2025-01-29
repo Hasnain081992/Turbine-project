@@ -3,6 +3,7 @@ import pandas as pd
 import os
 import matplotlib.pyplot as plt
 
+
 def load_data(file_paths):
     dfs = []
     for file in file_paths:
@@ -105,7 +106,7 @@ anomalies.to_csv(os.path.join(output_dir, "anomalies.csv"), index=False)
 print(f"Data saved to: {output_dir}")
 
 
-# Plot anomalies for a specific turbine
+# step 6 visualization : 1. Plot anomalies for a specific turbine
 def plot_anomalies(turbine_id):
     turbine_data = cleaned_data[cleaned_data['turbine_id'] == turbine_id]
     turbine_anomalies = anomalies[anomalies['turbine_id'] == turbine_id]
@@ -128,9 +129,8 @@ anomaly_counts = anomalies.groupby('turbine_id').size().reset_index(name='anomal
 print(anomaly_counts)  # View the anomaly counts for each turbine
 
 
-import matplotlib.pyplot as plt
 
-# Bar chart for anomalies per turbine
+# 2.  Bar chart for anomalies per turbine
 def plot_anomalies_per_turbine(anomaly_counts):
     plt.figure(figsize=(10, 6))
     plt.bar(anomaly_counts['turbine_id'], anomaly_counts['anomaly_count'], color='red')
