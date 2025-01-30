@@ -156,3 +156,4 @@ plot_anomalies_per_turbine(anomaly_counts)
 
 
 
+
